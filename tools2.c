@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:35:19 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 18:09:08 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/24 20:13:16 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ double	puissance_2(double n)
 	return (n * n);
 }
 
-double	calcul_c(double	zr, double zi)
+double	calcul_c(double zr, double zi)
 {
 	return (puissance_2(zr) + puissance_2(zi));
 }
@@ -31,6 +31,7 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*ss1;
@@ -48,16 +49,21 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
+
 int	ft_setup(char *str, t_mlx *emlx)
 {
-	if (ft_strncmp(str, "mandelbrot", ft_strlen("mandelbrot")) == 0 || ft_strncmp(str, "burningship", ft_strlen("burningship")) == 0 || ft_strncmp(str, "julia", ft_strlen("julia")) == 0)
+	if (ft_strncmp(str, "mandelbrot", ft_strlen("mandelbrot")) == 0
+		|| ft_strncmp(str, "burningship", ft_strlen("burningship")) == 0
+		|| ft_strncmp(str, "julia", ft_strlen("julia")) == 0)
 	{
-	emlx = (t_mlx *)malloc(sizeof(t_mlx));
-	emlx->mlx = mlx_init();
-	emlx->win = mlx_new_window(emlx->mlx, emlx->W, emlx->H, "mandelbrot");
-	emlx->image.img = mlx_new_image(emlx->mlx, emlx->W, emlx->H);
-	emlx->image.addr = (int*)mlx_get_data_addr(emlx->image.img, &emlx->image.bits_per_pixel, &emlx->image.line_length, &emlx->image.endian);
-	return (1);
+		emlx = (t_mlx *)malloc(sizeof(t_mlx));
+		emlx->mlx = mlx_init();
+		emlx->win = mlx_new_window(emlx->mlx, emlx->wid, emlx->hei, "fract-ol");
+		emlx->image.img = mlx_new_image(emlx->mlx, emlx->wid, emlx->hei);
+		emlx->image.addr = (int *)mlx_get_data_addr(emlx->image.img,
+				&emlx->image.bits_per_pixel, &emlx->image.line_length,
+				&emlx->image.endian);
+		return (1);
 	}
-		return (0);
+	return (0);
 }

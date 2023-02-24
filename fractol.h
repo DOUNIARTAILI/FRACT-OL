@@ -1,67 +1,82 @@
-# ifndef FRACTOL_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 20:17:58 by drtaili           #+#    #+#             */
+/*   Updated: 2023/02/24 20:47:40 by drtaili          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
+# include "mlx.h"
+# include <stdlib.h>
+# include <math.h>
+# include <stdio.h>
 
 typedef struct s_point{
-	double r;
-	double i;
+	double	r;
+	double	i;
 }t_point;
 
-typedef struct	s_data {
+typedef struct s_data {
 	void	*img;
 	int		*addr;
 	int		bits_per_pixel;
-	int		line_length; 
+	int		line_length;
 	int		endian;
 }				t_data;
 
-typedef	struct s_mlx
+typedef struct s_mlx
 {
 	t_point	c;
 	t_point	z;
 	t_data	image;
 	t_point	new_z;
-	double mx;
-	double my;
-	double imin;
-	double imax;
-	double rmin;
-	double rmax;
-	double zoom;
-	void *mlx;
-	void *win;
-	int x;
-	int color;
-	int customize_color;
-	int y;
-	int iter;
-	int maxiter;
-	int W;
-	int H;
-	int id;
-	int ud;
-	int lr;
+	double	mx;
+	double	my;
+	double	imin;
+	double	imax;
+	double	rmin;
+	double	rmax;
+	double	zoom;
+	void	*mlx;
+	void	*win;
+	int		x;
+	int		color;
+	int		customize_color;
+	int		y;
+	int		iter;
+	int		maxiter;
+	int		wid;
+	int		hei;
+	int		id;
+	int		ud;
+	int		lr;
 }t_mlx;
 
 void	ft_mandelbrot(t_mlx *emlx);
 void	ft_burningship(t_mlx *emlx);
 void	ft_julia(t_mlx *emlx);
 void	draw(char *str, t_mlx *emlx);
-int close(void *param);
-int key_press(int keycode, t_mlx *par);
-int mouse_press(int button, int x, int y, void *param);
-int mouse_move(int x, int y, void *param);
+int		close(void *param);
+int		key_press(int keycode, t_mlx *par);
+int		mouse_press(int button, int x, int y, void *param);
+int		mouse_move(int x, int y, void *param);
 size_t	ft_strlen(const char *s);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 double	puissance_2(double n);
-double	calcul_c(double	zr, double zi);
-int	ft_setup(char *str, t_mlx *emlx);
+double	calcul_c(double zr, double zi);
+int		ft_setup(char *str, t_mlx *emlx);
 void	ft_init(t_mlx *emlx);
 void	ft_zoom(t_mlx *emlx, int button, int x, int y);
-
+void	escaped_or_not(t_mlx *emlx);
+void	color_it(t_mlx *emlx);
+void	move_shape(t_mlx *emlx, int keycode);
+void	cust_color_button(t_mlx *emlx, int keycode);
 
 #endif
