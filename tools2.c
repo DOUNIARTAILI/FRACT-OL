@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:35:19 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 01:40:50 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/24 18:09:08 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 }
 int	ft_setup(char *str, t_mlx *emlx)
 {
-	if (ft_strncmp(str, "mandelbrot", ft_strlen("mandelbrot")) == 0 || ft_strncmp(str, "burningship", ft_strlen("burningship")) == 0)
+	if (ft_strncmp(str, "mandelbrot", ft_strlen("mandelbrot")) == 0 || ft_strncmp(str, "burningship", ft_strlen("burningship")) == 0 || ft_strncmp(str, "julia", ft_strlen("julia")) == 0)
 	{
 	emlx = (t_mlx *)malloc(sizeof(t_mlx));
 	emlx->mlx = mlx_init();

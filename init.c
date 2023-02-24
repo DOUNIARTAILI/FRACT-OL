@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 01:09:44 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 03:44:56 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/24 18:41:26 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ void	ft_init(t_mlx *emlx)
 	emlx->imax = 2;
 	emlx->rmin = -2;
 	emlx->rmax = 2;
-	emlx->maxiter = 50;
+	emlx->maxiter = 100;
 	emlx->zoom = 1;
 	emlx->id = 0;
 	emlx->mx = 0.0;
 	emlx->my = 0.0;
 	emlx->ud = 0;
 	emlx->lr = 0;
+	emlx->customize_color = 0xf4fefe;
 }

@@ -36,6 +36,7 @@ typedef	struct s_mlx
 	void *win;
 	int x;
 	int color;
+	int customize_color;
 	int y;
 	int iter;
 	int maxiter;
@@ -48,12 +49,12 @@ typedef	struct s_mlx
 
 void	ft_mandelbrot(t_mlx *emlx);
 void	ft_burningship(t_mlx *emlx);
-
-
+void	ft_julia(t_mlx *emlx);
 void	draw(char *str, t_mlx *emlx);
 int close(void *param);
 int key_press(int keycode, t_mlx *par);
 int mouse_press(int button, int x, int y, void *param);
+int mouse_move(int x, int y, void *param);
 size_t	ft_strlen(const char *s);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 double	puissance_2(double n);
