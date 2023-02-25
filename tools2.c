@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:35:19 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 23:56:40 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 21:15:54 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ size_t	ft_strlen(const char *s)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
@@ -47,7 +47,7 @@ int	ft_setup(char *str, t_mlx *emlx)
 	if (ft_strcmp(str, "mandelbrot") == 0
 		|| ft_strcmp(str, "julia") == 0
 		|| ft_strcmp(str, "mandelbrot_bonus") == 0
-		|| ft_strcmp(str, "burningship_bonus") == 0
+		|| ft_strcmp(str, "burningship") == 0
 		|| ft_strcmp(str, "julia_bonus") == 0)
 	{
 		emlx = (t_mlx *)malloc(sizeof(t_mlx));

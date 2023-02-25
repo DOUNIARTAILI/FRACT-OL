@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 01:41:31 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 20:16:16 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 21:16:23 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,12 @@ void	ft_zoom(t_mlx *emlx, int button, int x, int y)
 		emlx->zoom = 1.2;
 	mousere = (double)x / (emlx->wid / (emlx->rmax - emlx->rmin)) + emlx->rmin;
 	mouseim = (double)y / (emlx->hei / (emlx->imax - emlx->imin)) + emlx->imin;
+	if (emlx->m == 1)
+	{
+		mousere = (double)(emlx->wid / 2)
+			/ (emlx->wid / (emlx->rmax - emlx->rmin)) + emlx->rmin;
+		mouseim = (double)(emlx->hei / 2)
+			/ (emlx->hei / (emlx->imax - emlx->imin)) + emlx->imin;
+	}
 	applyzoom(emlx, mousere, mouseim);
 }

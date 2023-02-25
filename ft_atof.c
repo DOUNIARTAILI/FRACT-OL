@@ -6,17 +6,11 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 00:08:59 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 01:15:26 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 21:30:17 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	error_()
-{
-	// write(2, "Error \n", 7);
-	exit(EXIT_FAILURE);
-}
 
 void	atoi_check(const char *str, int *i, int *s)
 {
@@ -48,24 +42,41 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (str[i] - '0');
 		count++;
 		if (count > 10 && r != 0)
-			error_();
+			ft_error();
 		i++;
 	}
 	if (str[i] != ' ' && str[i] != '\0' && str[i] != '.')
-		error_();
+		ft_error();
 	if ((r * s) < -2147483648 || (r * s) > 2147483647)
-		error_();
+		ft_error();
 	return (r * s);
 }
+
+int	sign(char *c)
+{
+	int	s;
+
+	s = 1;
+	if (*c == '+' || *c == '-')
+	{
+		if (*c == '-')
+			s = s * (-1);
+	}
+	return (s);
+}
+
 double	ft_atof(const char *str)
 {
 	double	res;
 	double	res2;
 	char	*c;
 	int		len;
+	int		s;
 
 	c = (char *)str;
+	s = 1;
 	res = (double)ft_atoi(c);
+	s = sign(c);
 	while (*c && *c != '.')
 		c++;
 	if (*c == '.')
@@ -75,7 +86,7 @@ double	ft_atof(const char *str)
 	while (len--)
 		res2 /= 10;
 	if (res >= 0)
-		return (res + res2);
+		return ((res + res2) * s);
 	else
-		return (res + -res2);
+		return ((res + -res2) * s);
 }

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 00:33:22 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 20:17:17 by drtaili          ###   ########.fr       */
+/*   Created: 2023/02/25 20:23:31 by drtaili           #+#    #+#             */
+/*   Updated: 2023/02/25 21:15:02 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_mandelbrot(t_mlx *emlx)
+void	ft_mandelbrot_bonus(t_mlx *emlx)
 {
-	emlx->m = 1;
 	emlx->y = 0;
 	while (emlx->y < (int)emlx->hei)
 	{

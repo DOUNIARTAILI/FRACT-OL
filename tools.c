@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:34:26 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 23:39:26 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 20:39:04 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,20 @@ int	key_press(int keycode, t_mlx *emlx)
 	else if ((keycode == 123 || keycode == 124
 			|| keycode == 125 || keycode == 126) && emlx && emlx->tag == 1)
 		move_shape(emlx, keycode);
-	else if ((keycode == 18 || keycode == 19 || keycode == 20) && emlx && emlx->tag == 1)
+	else if (keycode == 18 && emlx && emlx->tag == 1)
 		cust_color_button(emlx, keycode);
 	ft_clearwindow(emlx);
-	if (emlx->id == 1)
-		ft_mandelbrot(emlx);
-	else if (emlx->id == 2)
+	if (emlx->id == 3)
+		ft_mandelbrot_bonus(emlx);
+	else if (emlx->id == 4)
 		ft_burningship(emlx);
-	else if (emlx->id == 3)
-		ft_julia(emlx);
+	else if (emlx->id == 5)
+		ft_julia_bonus(emlx);
 	mlx_put_image_to_window(emlx->mlx, emlx->win, emlx->image.img, 0, 0);
 	return (0);
 }
 
-int	close(void *param)
+int	ft_close(void *param)
 {
 	(void)param;
 	exit(0);
@@ -68,10 +68,10 @@ int	mouse_move(int x, int y, void *param)
 	emlx = (t_mlx *)param;
 	emlx->mx = x;
 	emlx->my = y;
-	if (emlx->id == 3)
+	if (emlx->id == 5)
 	{
 		ft_clearwindow(emlx);
-		ft_julia(emlx);
+		ft_julia_bonus(emlx);
 		mlx_put_image_to_window(emlx->mlx, emlx->win, emlx->image.img, 0, 0);
 	}
 	return (0);
@@ -90,9 +90,13 @@ int	mouse_press(int button, int x, int y, void *param)
 	if (emlx->id == 1)
 		ft_mandelbrot(emlx);
 	else if (emlx->id == 2)
-		ft_burningship(emlx);
-	else if (emlx->id == 3)
 		ft_julia(emlx);
+	else if (emlx->id == 3)
+		ft_mandelbrot_bonus(emlx);
+	else if (emlx->id == 4)
+		ft_burningship(emlx);
+	else if (emlx->id == 5)
+		ft_julia_bonus(emlx);
 	mlx_put_image_to_window(emlx->mlx, emlx->win, emlx->image.img, 0, 0);
 	return (0);
 }

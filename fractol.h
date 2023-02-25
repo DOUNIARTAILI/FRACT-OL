@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:17:58 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 01:29:13 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 21:09:55 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>
-// # include <unistd.h>
+# include <unistd.h>
 
 typedef struct s_point{
 	double	r;
@@ -59,14 +59,16 @@ typedef struct s_mlx
 	int		ud;
 	int		lr;
 	int		tag;
+	int		m;
 }t_mlx;
 
 void	ft_mandelbrot(t_mlx *emlx);
+void	ft_mandelbrot_bonus(t_mlx *emlx);
 void	ft_burningship(t_mlx *emlx);
 void	ft_julia(t_mlx *emlx);
 void	ft_julia_bonus(t_mlx *emlx);
 void	draw(char *str, t_mlx *emlx);
-int		close(void *param);
+int		ft_close(void *param);
 int		key_press(int keycode, t_mlx *emlx);
 int		mouse_press(int button, int x, int y, void *param);
 int		mouse_move(int x, int y, void *param);
@@ -85,5 +87,6 @@ void	cust_color_button(t_mlx *emlx, int keycode);
 void	ft_clearwindow(t_mlx *emlx);
 void	draw_bonus(char *str, t_mlx *emlx);
 double	ft_atof(const char *str);
+void	ft_error(void);
 
 #endif
