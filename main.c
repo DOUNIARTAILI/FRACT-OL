@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:43:23 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 21:31:51 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 23:34:41 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,35 @@ void	ft_error(void)
 	exit (0);
 }
 
+void	check_errors(char *str, int ac)
+{
+	if (ac == 1)
+		ft_error();
+	if ((ft_strcmp(str, "mandelbrot") == 0
+			|| ft_strcmp(str, "mandelbrot_bonus") == 0
+			|| ft_strcmp(str, "burningship") == 0)
+		&& (ac <= 1 || ac > 2))
+		ft_error();
+	if ((ft_strcmp(str, "julia_bonus") == 0
+			|| ft_strcmp(str, "julia") == 0)
+		&& (ac <= 1 || ac > 4 || ac == 3))
+		ft_error();
+}
+
+void	suite_main(char *str, t_mlx *emlx)
+{
+	emlx->tag = 1;
+	draw_bonus(str, emlx);
+}
+
 int	main(int argc, char **argv)
 {
 	t_mlx	*emlx;
 
-	if (argc == 1)
-		ft_error();
-	if ((ft_strcmp(argv[1], "mandelbrot") == 0
-			|| ft_strcmp(argv[1], "mandelbrot_bonus") == 0
-			|| ft_strcmp(argv[1], "burningship") == 0)
-		&& (argc <= 1 || argc > 2))
-		ft_error();
-	if ((ft_strcmp(argv[1], "julia_bonus") == 0
-			|| ft_strcmp(argv[1], "julia") == 0)
-		&& (argc <= 1 || argc > 4 || argc == 3))
-		ft_error();
+	check_errors(argv[1], argc);
 	emlx = (t_mlx *)malloc(sizeof(t_mlx));
 	if (ft_setup(argv[1], emlx) == 0)
-	{
 		ft_error();
-	}
 	ft_init(emlx);
 	if (ft_strcmp(argv[1], "mandelbrot") == 0
 		|| ft_strcmp(argv[1], "julia") == 0)
@@ -64,9 +73,6 @@ int	main(int argc, char **argv)
 	else if (ft_strcmp(argv[1], "mandelbrot_bonus") == 0
 		|| ft_strcmp(argv[1], "burningship") == 0
 		|| ft_strcmp(argv[1], "julia_bonus") == 0)
-	{
-		emlx->tag = 1;
-		draw_bonus(argv[1], emlx);
-	}	
+		suite_main(argv[1], emlx);
 	return (0);
 }
