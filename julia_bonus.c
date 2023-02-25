@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   julia_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 17:42:41 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 00:38:36 by drtaili          ###   ########.fr       */
+/*   Created: 2023/02/25 00:50:21 by drtaili           #+#    #+#             */
+/*   Updated: 2023/02/25 00:57:34 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_julia(t_mlx *emlx)
+void	ft_julia_bonus(t_mlx *emlx)
 {
 	emlx->y = 0;
 	while (emlx->y < (int)emlx->hei)
@@ -21,12 +21,10 @@ void	ft_julia(t_mlx *emlx)
 		while (emlx->x < (int)emlx->wid)
 		{
 			emlx->iter = 1;
-			// emlx->c.r = emlx->rmin + emlx->mx
-			// 	/ (double)emlx->wid * (emlx->rmax - emlx->rmin);
-			// emlx->c.i = emlx->imin + emlx->my
-			// 	/ (double)emlx->hei * (emlx->imax - emlx->imin);
-			emlx->c.r = emlx->mx;
-			emlx->c.i = emlx->my;
+			emlx->c.r = emlx->rmin + emlx->mx
+				/ (double)emlx->wid * (emlx->rmax - emlx->rmin);
+			emlx->c.i = emlx->imin + emlx->my
+				/ (double)emlx->hei * (emlx->imax - emlx->imin);
 			emlx->z.r = emlx->rmin + (emlx->x + emlx->lr)
 				/ (double)emlx->wid * (emlx->rmax - emlx->rmin);
 			emlx->z.i = emlx->imin + (emlx->y + emlx->ud)

@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:33:22 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 20:35:12 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/24 23:43:14 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_burningship(t_mlx *emlx)
 			emlx->z.r = 0.0;
 			emlx->z.i = 0.0;
 			emlx->new_z = emlx->z;
-			escaped_or_not(emlx);
+			burningship_z(emlx);
 			color_it(emlx);
 			emlx->image.addr[emlx->y * (int)emlx->wid + emlx->x] = emlx->color;
 			emlx->x++;

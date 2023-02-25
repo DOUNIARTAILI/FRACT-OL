@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:35:19 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 20:13:16 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/24 23:56:40 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,23 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned char	*ss1;
-	unsigned char	*ss2;
-	size_t			i;
+	int i;
 
-	ss1 = (unsigned char *)s1;
-	ss2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n && (ss1[i] || ss2[i]))
-	{
-		if (ss1[i] != ss2[i])
-			return (ss1[i] - ss2[i]);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
-	}
-	return (0);
+	return (s1[i] - s2[i]);
 }
 
 int	ft_setup(char *str, t_mlx *emlx)
 {
-	if (ft_strncmp(str, "mandelbrot", ft_strlen("mandelbrot")) == 0
-		|| ft_strncmp(str, "burningship", ft_strlen("burningship")) == 0
-		|| ft_strncmp(str, "julia", ft_strlen("julia")) == 0)
+	if (ft_strcmp(str, "mandelbrot") == 0
+		|| ft_strcmp(str, "julia") == 0
+		|| ft_strcmp(str, "mandelbrot_bonus") == 0
+		|| ft_strcmp(str, "burningship_bonus") == 0
+		|| ft_strcmp(str, "julia_bonus") == 0)
 	{
 		emlx = (t_mlx *)malloc(sizeof(t_mlx));
 		emlx->mlx = mlx_init();

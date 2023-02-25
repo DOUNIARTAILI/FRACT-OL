@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:34:26 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 20:48:45 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/24 23:39:26 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	key_press(int keycode, t_mlx *emlx)
 		emlx->maxiter -= 10;
 	}
 	else if ((keycode == 123 || keycode == 124
-			|| keycode == 125 || keycode == 126) && emlx)
+			|| keycode == 125 || keycode == 126) && emlx && emlx->tag == 1)
 		move_shape(emlx, keycode);
-	else if ((keycode == 18 || keycode == 19 || keycode == 20) && emlx)
+	else if ((keycode == 18 || keycode == 19 || keycode == 20) && emlx && emlx->tag == 1)
 		cust_color_button(emlx, keycode);
 	ft_clearwindow(emlx);
 	if (emlx->id == 1)

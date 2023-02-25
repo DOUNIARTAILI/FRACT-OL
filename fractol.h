@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:17:58 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 20:47:40 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 01:29:13 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>
+// # include <unistd.h>
 
 typedef struct s_point{
 	double	r;
@@ -57,26 +58,32 @@ typedef struct s_mlx
 	int		id;
 	int		ud;
 	int		lr;
+	int		tag;
 }t_mlx;
 
 void	ft_mandelbrot(t_mlx *emlx);
 void	ft_burningship(t_mlx *emlx);
 void	ft_julia(t_mlx *emlx);
+void	ft_julia_bonus(t_mlx *emlx);
 void	draw(char *str, t_mlx *emlx);
 int		close(void *param);
-int		key_press(int keycode, t_mlx *par);
+int		key_press(int keycode, t_mlx *emlx);
 int		mouse_press(int button, int x, int y, void *param);
 int		mouse_move(int x, int y, void *param);
 size_t	ft_strlen(const char *s);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(char *s1, char *s2);
 double	puissance_2(double n);
 double	calcul_c(double zr, double zi);
 int		ft_setup(char *str, t_mlx *emlx);
 void	ft_init(t_mlx *emlx);
 void	ft_zoom(t_mlx *emlx, int button, int x, int y);
 void	escaped_or_not(t_mlx *emlx);
+void	burningship_z(t_mlx *emlx);
 void	color_it(t_mlx *emlx);
 void	move_shape(t_mlx *emlx, int keycode);
 void	cust_color_button(t_mlx *emlx, int keycode);
+void	ft_clearwindow(t_mlx *emlx);
+void	draw_bonus(char *str, t_mlx *emlx);
+double	ft_atof(const char *str);
 
 #endif
