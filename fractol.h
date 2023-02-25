@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:17:58 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 21:09:55 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/25 23:57:02 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void	ft_clearwindow(t_mlx *emlx);
 void	draw_bonus(char *str, t_mlx *emlx);
 double	ft_atof(const char *str);
 void	ft_error(void);
+void	check_errors(char *str, int ac);
 
 #endif
