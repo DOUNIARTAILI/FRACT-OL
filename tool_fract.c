@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:32:46 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/24 23:45:07 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/26 02:01:17 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	burningship_z(t_mlx *emlx)
 		&& emlx->iter < emlx->maxiter)
 	{
 		emlx->new_z.r = fabs((puissance_2(emlx->z.r)
-				- puissance_2(emlx->z.i)) + emlx->c.r);
+					- puissance_2(emlx->z.i)) + emlx->c.r);
 		emlx->new_z.i = fabs((2 * emlx->z.r * emlx->z.i) + emlx->c.i);
 		emlx->z = emlx->new_z;
 		emlx->iter++;

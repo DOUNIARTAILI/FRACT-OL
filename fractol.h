@@ -6,14 +6,14 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:17:58 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 23:57:02 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/26 01:28:20 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx.h"
+# include <mlx.h>
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>

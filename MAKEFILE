@@ -6,29 +6,32 @@
 #    By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 20:51:40 by drtaili           #+#    #+#              #
-#    Updated: 2023/02/25 23:58:23 by drtaili          ###   ########.fr        #
+#    Updated: 2023/02/26 01:57:47 by drtaili          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = draw.c ft_atof.c init.c julia.c main.c mandelbrot.c tool_fract.c tools_keypress.c tools.c tools2.c zoom.c errors_handler.c 
-SRC_bonus = burningship.c draw_bonus.c ft_atof.c init.c julia_bonus.c main_bonus.c mandelbrot_bonus.c tool_fract.c tools_keypress.c tools.c tools2.c zoom.c errors_handler.c
+SRC = draw.c ft_atof.c init.c julia.c main.c mandelbrot.c tool_fract.c tools_keypress.c tools.c tools2.c zoom.c errors_handler.c burningship.c julia_bonus.c mandelbrot_bonus.c 
+SRC_bonus = burningship.c draw_bonus.c ft_atof.c init.c julia_bonus.c main_bonus.c mandelbrot_bonus.c tool_fract.c tools_keypress.c tools.c tools2.c zoom.c errors_handler.c julia.c mandelbrot.c
 OBJS = $(SRC:.c=.o)
 OBJS_bonus = $(SRC_bonus:.c=.o)
 NAME = fractol
 NAME_BONUS = fractol_bonus
+
 CC = cc
 
 RM = rm -rf
 
 FLAGS = -Wall -Wextra -Werror
 
+FLAGS_mlx = -lmlx -framework OpenGL -framework AppKit
+
 all: $(NAME)
 
 fractol : $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(FLAGS_mlx) $(OBJS) -o $(NAME)
 
 fractol_bonus : $(OBJS_bonus)
-	$(CC) $(FLAGS) $(OBJS_bonus) -o $(NAME_BONUS)
+	$(CC) $(FLAGS) $(FLAGS_mlx) $(OBJS_bonus) -o $(NAME_BONUS)
 
 %.o : %.c fractol.h
 	$(CC) $(FLAGS) -c $< -o $@
