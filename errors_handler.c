@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:56:36 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 23:59:50 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/26 02:07:45 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_error(void)
 		ft_strlen("To display julia enter ./fract-ol julia\n"));
 	str = "To display julia by ur choice enter ./fract-ol julia /cr /ci\n";
 	write(1, str, ft_strlen(str));
-	write(1, "Exemple julia set : cr = 0.285 ci = 0.01\n",
-		ft_strlen("Exemple julia set : cr = 0.285 ci = 0.01\n"));
+	write(1, "Exemple : ./fract-ol julia 0.285 0.01\n",
+		ft_strlen("Exemple : ./fract-ol julia 0.285 0.01\n"));
 	write(1, "To display burningship enter ./fract-ol burningship\n",
 		ft_strlen("To display burningship enter ./fract-ol burningship\n"));
 	write(1, "Thank u :)\n", ft_strlen("Thank u :)\n"));
