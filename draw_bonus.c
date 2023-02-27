@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 22:32:40 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 23:21:15 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/27 01:40:28 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ void	draw_bonus(char *str, t_mlx *emlx)
 	mlx_hook(emlx->win, 2, 0, key_press, (void *)emlx);
 	mlx_hook(emlx->win, 17, 0, ft_close, (void *)emlx);
 	mlx_hook(emlx->win, 4, 0, mouse_press, (void *)emlx);
-	mlx_hook(emlx->win, 6, 0, mouse_move, (void *)emlx);
 	mlx_loop(emlx->mlx);
 }

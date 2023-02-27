@@ -6,17 +6,11 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:54:37 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/26 02:10:46 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/27 01:25:33 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	suite_main(char *str, t_mlx *emlx)
-{
-	emlx->tag = 1;
-	draw_bonus(str, emlx);
-}
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +27,15 @@ int	main(int argc, char **argv)
 	if (ft_strcmp(argv[1], "mandelbrot_bonus") == 0
 		|| ft_strcmp(argv[1], "burningship") == 0
 		|| ft_strcmp(argv[1], "julia_bonus") == 0)
-		suite_main(argv[1], emlx);
+	{
+		if (ft_strcmp(argv[1], "julia_bonus") == 0 && argc == 4)
+		{
+			emlx->mx = ft_atof(argv[2]);
+			emlx->my = ft_atof(argv[3]);
+		}
+		emlx->tag = 1;
+		draw_bonus(argv[1], emlx);
+	}
 	free(emlx);
 	return (0);
 }

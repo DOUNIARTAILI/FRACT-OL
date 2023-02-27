@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 00:35:19 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 21:15:54 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/27 02:06:51 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,7 @@ int	ft_setup(char *str, t_mlx *emlx)
 		|| ft_strcmp(str, "julia_bonus") == 0)
 	{
 		emlx = (t_mlx *)malloc(sizeof(t_mlx));
-		emlx->mlx = mlx_init();
-		emlx->win = mlx_new_window(emlx->mlx, emlx->wid, emlx->hei, "fract-ol");
-		emlx->image.img = mlx_new_image(emlx->mlx, emlx->wid, emlx->hei);
-		emlx->image.addr = (int *)mlx_get_data_addr(emlx->image.img,
-				&emlx->image.bits_per_pixel, &emlx->image.line_length,
-				&emlx->image.endian);
+		ft_init(emlx);
 		return (1);
 	}
 	return (0);
