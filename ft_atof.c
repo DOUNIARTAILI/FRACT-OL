@@ -6,7 +6,7 @@
 /*   By: drtaili <drtaili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 00:08:59 by drtaili           #+#    #+#             */
-/*   Updated: 2023/02/25 21:30:17 by drtaili          ###   ########.fr       */
+/*   Updated: 2023/02/27 04:42:45 by drtaili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ double	ft_atof(const char *str)
 	c = (char *)str;
 	s = 1;
 	res = (double)ft_atoi(c);
+	printf("res : %f\n", res);
 	s = sign(c);
 	while (*c && *c != '.')
 		c++;
@@ -88,5 +89,5 @@ double	ft_atof(const char *str)
 	if (res >= 0)
 		return ((res + res2) * s);
 	else
-		return ((res + -res2) * s);
+		return ((res + -res2));
 }
